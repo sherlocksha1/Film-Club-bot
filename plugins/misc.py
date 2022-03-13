@@ -57,6 +57,23 @@ async def showid(client, message):
             quote=True
         )
 
+@Client.on_message(filters.command("about"))
+async def aboutme(client, message):
+        buttons= [[
+            InlineKeyboardButton(' 𝙲𝚑𝚊𝚗𝚗𝚎𝚕', url='https://t.me/+AMHw_K1wvOM3MTU9'),
+            InlineKeyboardButton(' 𝚂𝚘𝚞𝚛𝚌𝚎', callback_data='source')
+            ],[
+            InlineKeyboardButton(' 𝙷𝚘𝚖𝚎', callback_data='start'),
+            InlineKeyboardButton(' 𝙲𝚕𝚘𝚜𝚎', callback_data='close_data')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_photo(
+            photo=random.choice(PICS),
+            caption=script.ABOUT_TXT.format(message.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+
 @Client.on_message(filters.command(["info"]))
 async def who_is(client, message):
     # https://github.com/SpEcHiDe/PyroGramBot/blob/master/pyrobot/plugins/admemes/whois.py#L19
@@ -168,8 +185,6 @@ async def help(client, message):
             InlineKeyboardButton('𝙶-𝚃𝚁𝙰𝙽𝚂', callback_data='gtrans'),
             InlineKeyboardButton('𝙵𝙸𝙻𝙴-𝚂𝚃𝙾𝚁𝙴', callback_data='newdata'),
             InlineKeyboardButton('𝚂𝚃𝙰𝚃𝚄𝚂', callback_data='stats')
-            ],[
-            InlineKeyboardButton('⚚ ✶ 𝙱𝙰𝙲𝙺 ✶ ⚚', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
