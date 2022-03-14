@@ -33,7 +33,7 @@ def a(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply('`🎧𝐅𝐢𝐧𝐝𝐢𝐧𝐠 𝐲𝐨𝐮𝐫 𝐬𝐨𝐧𝐠..... 𝐩𝐥𝐞𝐚𝐬𝐞 𝐰𝐚𝐢𝐭𝐞🎵`')
+    m = message.reply('`ѕєαrchíng чσur ѕσng...!`')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = []
@@ -57,28 +57,28 @@ def a(client, message):
             #     m.edit("Exceeded 30mins cap")
             #     return
 
-            performer = f"[Devil Music]" 
+            performer = f"[Sam]" 
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
 
         except Exception as e:
             print(e)
-            m.edit('**𝐅𝐨𝐮𝐧𝐝 𝐋𝐢𝐭𝐞𝐫𝐚𝐫𝐫𝐲 𝐍𝐨𝐭𝐢𝐧𝐠. 𝐏𝐥𝐞𝐚𝐬𝐞 𝐓𝐫𝐲 𝐀𝐧𝐨𝐭𝐡𝐞𝐫 𝐒𝐨𝐧𝐠 𝐨𝐫 𝐔𝐬𝐞 𝐂𝐨𝐫𝐫𝐞𝐜𝐭 𝐬𝐩𝐞𝐥𝐥𝐢𝐧𝐠.**')
+            m.edit('**𝙵𝙾𝚄𝙽𝙳 𝙽𝙾𝚃𝙷𝙸𝙽𝙶 𝙿𝙻𝙴𝙰𝚂𝙴 𝙲𝙾𝚁𝚁𝙴𝙲𝚃 𝚃𝙷𝙴 𝚂𝙿𝙴𝙻𝙻𝙸𝙽𝙶 𝙾𝚁 𝚂𝙴𝙰𝚁𝙲𝙷 𝙰𝙽𝚈 𝙾𝚃𝙷𝙴𝚁 𝚂𝙾𝙽𝙶**')
             return
     except Exception as e:
         m.edit(
-            "**𝐄𝐧𝐭𝐞𝐫 𝐒𝐨𝐧𝐠 𝐍𝐚𝐦𝐞  𝐰𝐢𝐭𝐡 𝐂𝐨𝐦𝐦𝐚𝐧𝐝**❗\n𝐅𝐨𝐫 𝐄𝐱𝐚𝐦𝐩𝐥𝐞: `/song Vathi coming`"
+            "**𝙴𝙽𝚃𝙴𝚁 𝚂𝙾𝙽𝙷 𝙽𝙰𝙼𝙴 𝚆𝙸𝚃𝙷 𝙲𝙾𝙼𝙼𝙰𝙽𝙳**❗\n𝙵𝙾𝚁 𝙴𝚇𝙰𝙼𝙿𝙻𝙴: `/song Alone marshmellow`"
         )
         print(str(e))
         return
-    m.edit("`🎵𝐔𝐩𝐥𝐨𝐚𝐝𝐢𝐧𝐠.....🖇️𝐏𝐥𝐞𝐚𝐬𝐞 𝐰𝐚𝐢𝐭𝐞`")
+    m.edit("`uplσαdíng чσur sσng...!`")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f'🎸 <b>𝐓𝐢𝐭𝐥𝐞:</b> <a href="{link}">{title}</a>\n🎙️ <b>𝐃𝐮𝐫𝐚𝐭𝐢𝐨𝐧:</b> <code>{duration}</code>\n🎧 <b>𝐕𝐢𝐞𝐰𝐬:</b> <code>{views}</code>\n🎷 <b>𝐑𝐞𝐪𝐮𝐞𝐬𝐭𝐞𝐝 𝐛𝐲:</b> {message.from_user.mention()}'
+        rep = f'<b>𝚃𝙸𝚃𝙻𝙴 ››</b> <a href="{link}">{title}</a>\n\n<b>𝙳𝚄𝚁𝙰𝚃𝙸𝙾𝙽 ››</b> <code>{duration}</code>\n<b>𝚅𝙸𝙴𝚆𝚂 ››</b> <code>{views}</code>\n<b>𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝙳 𝙱𝚈 ››</b> {message.from_user.mention()}'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -95,8 +95,7 @@ def a(client, message):
     except Exception as e:
         print(e)
 
-
-def get_text(message: Message) -> [None, str]:
+def get_text(message: Message) -> [None,str]:
     text_to_return = message.text
     if message.text is None:
         return None
@@ -113,11 +112,11 @@ def humanbytes(size):
         return ""
     power = 2 ** 10
     raised_to_pow = 0
-    dict_power_n = {0: "", 1: "Ki", 2: "Mi", 3: "Gi", 4: "Ti"}
+    dict_power_n = {0: "", 1: "K", 2: "M", 3: "G", 4: "T"}
     while size > power:
         size /= power
         raised_to_pow += 1
-    return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "B"
+    return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "b"
 
 
 async def progress(current, total, message, start, type_of_ps, file_name=None):
@@ -132,8 +131,10 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
         time_to_completion = round((total - current) / speed) * 1000
         estimated_total_time = elapsed_time + time_to_completion
         progress_str = "{0}{1} {2}%\n".format(
-            "".join("◈" for i in range(math.floor(percentage / 10))),
-            "".join("◇" for i in range(10 - math.floor(percentage / 10))),
+
+            "".join("▓" for i in range(math.floor(percentage / 10))),
+
+            "".join("ｏ" for i in range(10 - math.floor(percentage / 10))),
             round(percentage, 2),
         )
 
@@ -241,7 +242,7 @@ async def vsong(client, message: Message):
     urlissed = get_text(message)
 
     pablo = await client.send_message(
-        message.chat.id, f"**🔎 𝐒𝐞𝐚𝐫𝐜𝐡𝐢𝐧𝐠..** `{urlissed}`"
+        message.chat.id, f"**𝙵𝙸𝙽𝙳𝙸𝙽𝙶 𝚈𝙾𝚄𝚁 𝚅𝙸𝙳𝙴𝙾** `{urlissed}`"
     )
     if not urlissed:
         await pablo.edit("Invalid Command Syntax Please Check help Menu To Know More!")
@@ -274,13 +275,13 @@ async def vsong(client, message: Message):
         with YoutubeDL(opts) as ytdl:
             ytdl_data = ytdl.extract_info(url, download=True)
     except Exception as e:
-        await event.edit(event, f"**Download Failed** \n**Error :** `{str(e)}`")
+        await event.edit(event, f"**𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍 𝙵𝚊𝚒𝚕𝚎𝚍 𝙿𝚕𝚎𝚊𝚜𝚎 𝚃𝚛𝚢 𝙰𝚐𝚊𝚒𝚗..♥️** \n**Error :** `{str(e)}`")
         return
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
     capy = f"""
-**🏷️ Video:** [{thum}]({mo})
-**🎬 Requested by:** {message.from_user.mention}
+**𝚃𝙸𝚃𝙻𝙴 :** [{thum}]({mo})
+**𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝙳 𝙱𝚈 :** {message.from_user.mention}
 """
     await client.send_video(
         message.chat.id,
@@ -291,10 +292,11 @@ async def vsong(client, message: Message):
         caption=capy,
         supports_streaming=True,
         progress=progress,
+        reply_to_message_id=message.message_id,
         progress_args=(
             pablo,
             c_time,
-            f"**🖇️ Download📎** `{urlissed}`",
+            f"**𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚒𝚗𝚐 𝙿𝚕𝚎𝚊𝚜𝚎 𝚆𝚊𝚒𝚝 𝚂𝚘𝚖𝚎𝚃𝚒𝚖𝚎** `{urlissed}`",
             file_stark,
         ),
     )
