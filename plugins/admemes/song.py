@@ -141,6 +141,17 @@ async def vsong(client, message: Message):
 **𝚃𝙸𝚃𝙻𝙴 :** [{thum}]({mo})
 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝙳 𝙱𝚈 :** {message.from_user.mention}
 """
+    await client.send_video(
+        message.chat.id,
+        video=open(file_stark, "rb"),
+        duration=int(ytdl_data["duration"]),
+        file_name=str(ytdl_data["title"]),
+        thumb=sedlyf,
+        caption=capy,
+        supports_streaming=True,
+        progress=progress,
+        reply_to_message_id=message.message_id 
+
     await pablo.delete()
     for files in (sedlyf, file_stark):
         if files and os.path.exists(files):
