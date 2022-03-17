@@ -94,45 +94,6 @@ def get_text(message: Message) -> [None,str]:
     except IndexError:
         return None
 
-async def progress(current, total, message, start, type_of_ps, file_name=None):
-    now = time.time()
-    diff = now - start
-    if round(diff % 10.00) == 0 or current == total:
-        percentage = current * 100 / total
-        speed = current / diff
-        elapsed_time = round(diff) * 1000
-        if elapsed_time == 0:
-            return
-        time_to_completion = round((total - current) / speed) * 1000
-        estimated_total_time = elapsed_time + time_to_completion
-        progress_str = "{0}{1} {2}%\n".format(
-
-            "".join("▓" for i in range(math.floor(percentage / 10))),
-
-            "".join("ｏ" for i in range(10 - math.floor(percentage / 10))),
-            round(percentage, 2),
-        )
-
-        tmp = progress_str + "{0} of {1}\nETA: {2}".format(
-            humanbytes(current), humanbytes(total), time_formatter(estimated_total_time)
-        )
-        if file_name:
-            try:
-                await message.edit(
-                    "{}\n**File Name:** `{}`\n{}".format(type_of_ps, file_name, tmp)
-                )
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-            except MessageNotModified:
-                pass
-        else:
-            try:
-                await message.edit("{}\n{}".format(type_of_ps, tmp))
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-            except MessageNotModified:
-                pass
-
 
 @Client.on_message(filters.command(["video", "mp4"]))
 async def vsong(client, message: Message):
@@ -180,23 +141,6 @@ async def vsong(client, message: Message):
 **𝚃𝙸𝚃𝙻𝙴 :** [{thum}]({mo})
 **𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝙳 𝙱𝚈 :** {message.from_user.mention}
 """
-    await client.send_video(
-        message.chat.id,
-        video=open(file_stark, "rb"),
-        duration=int(ytdl_data["duration"]),
-        file_name=str(ytdl_data["title"]),
-        thumb=sedlyf,
-        caption=capy,
-        supports_streaming=True,
-        progress=progress,
-        reply_to_message_id=message.message_id,
-        progress_args=(
-            pablo,
-            c_time,
-            f"**𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚒𝚗𝚐 𝙿𝚕𝚎𝚊𝚜𝚎 𝚆𝚊𝚒𝚝 𝚂𝚘𝚖𝚎𝚃𝚒𝚖𝚎** `{urlissed}`",
-            file_stark,
-        ),
-    )
     await pablo.delete()
     for files in (sedlyf, file_stark):
         if files and os.path.exists(files):
