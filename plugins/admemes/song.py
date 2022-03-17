@@ -148,8 +148,7 @@ async def vsong(client, message: Message):
         file_name=str(ytdl_data["title"]),
         thumb=sedlyf,
         caption=capy,
-        supports_streaming=True,
-        progress=progress,
+        supports_streaming=True,        
         reply_to_message_id=message.message_id 
 
     await pablo.delete()
