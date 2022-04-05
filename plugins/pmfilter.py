@@ -690,10 +690,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton(' 𝙰𝚋𝚘𝚞𝚝 ', callback_data='about')
             ],[
             InlineKeyboardButton('𝙷𝙴𝙻𝙿', callback_data='help'),
-            InlineKeyboardButton(' 𝙶𝚛𝚘𝚞𝚙 ', url='https://t.me/moviebus2')
+            InlineKeyboardButton(' 𝙶𝚛𝚘𝚞𝚙 ', url='https://t.me/new_movies_group_2021')
             ],[
-            InlineKeyboardButton(' 𝙾𝚠𝚗𝚎𝚛 ', url='https://t.me/albintko'),
-            InlineKeyboardButton(' 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 ', url='https://t.me/+AMHw_K1wvOM3MTU9')
+            InlineKeyboardButton(' 𝙾𝚠𝚗𝚎𝚛 ', url='https://t.me/peter_parker_10'),
+            InlineKeyboardButton(' 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 ', url='https://t.me/new_movies_club_2021')
         ]]        
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -827,7 +827,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons= [[
-            InlineKeyboardButton(' 𝙲𝚑𝚊𝚗𝚗𝚎𝚕', url='https://t.me/+AMHw_K1wvOM3MTU9'),
+            InlineKeyboardButton(' 𝙲𝚑𝚊𝚗𝚗𝚎𝚕', url='https://t.me/new_movies_club_2021'),
             InlineKeyboardButton(' 𝚂𝚘𝚞𝚛𝚌𝚎', callback_data='source')
             ],[
             InlineKeyboardButton(' 𝙷𝚘𝚖𝚎', callback_data='start'),
