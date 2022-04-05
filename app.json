@@ -17,7 +17,7 @@
       "inline"
     ],
     "website": "https://github.com/Samantha-a/Film-Club",
-    "repository": "https://github.com/Samantha-a/Film-Club",
+    "repository": "https://github.com/sherlocksha1/Film-Club-bot",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
@@ -106,6 +106,10 @@
             "description": "Customize Result Buttons to Callback or Url by (True = url / False = callback)",
             "value": "True",
             "required": false
+        },
+        "UPSTREAM_REPO": {
+            "description": " Your repo",
+            "required": false              
         }
     },
     "addons": [],
